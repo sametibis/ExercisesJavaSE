@@ -35,8 +35,17 @@ public class Homeworks {
 	
 	// 10
 	static int findSecondMax(int[] arr) {
-		Arrays.sort(arr);		
-		return arr[arr.length-2];
+		List<Integer> list = new ArrayList<>();
+		for (int i = 0; i < arr.length; i++) {
+			if (!list.contains(arr[i])) {
+				list.add(arr[i]);
+			}
+		}
+		Collections.sort(list);
+		// to see, duplicate elements deleted or not?
+		System.out.println(list); // [-5, 10, 20, 25, 57, 63, 87, 96, 189]
+​
+		return list.get(list.size()-2);
 	}
 	
 	// 11: Not use the sort() method
